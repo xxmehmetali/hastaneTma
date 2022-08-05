@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HastaneTMAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AppointmentHours">
+    <Key>
+      <PropertyRef Name="Hour" />
+      <PropertyRef Name="DoktorID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Hour" Type="datetime" Nullable="false" />
+    <Property Name="Status" Type="bit" Nullable="false" />
+    <Property Name="HastaTC" Type="char" MaxLength="11" />
+    <Property Name="DoktorID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Appointments">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DoktorID" Type="int" Nullable="false" />
+    <Property Name="KlinikID" Type="int" Nullable="false" />
+    <Property Name="RandevuSaati" Type="datetime" Nullable="false" />
+    <Property Name="TCNo" Type="char" MaxLength="11" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Clinics">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="KlinikAdi" Type="char" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Diagnostic">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DoktorID" Type="int" Nullable="false" />
+    <Property Name="HastaTC" Type="char" MaxLength="11" Nullable="false" />
+    <Property Name="Tani" Type="char" MaxLength="500" Nullable="false" />
+    <Property Name="TaniTarihi" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Doctors">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="KlinikID" Type="int" Nullable="false" />
+    <Property Name="DoktorID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Employees">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ad" Type="char" MaxLength="30" Nullable="false" />
+    <Property Name="Soyad" Type="char" MaxLength="30" Nullable="false" />
+    <Property Name="Cinsiyet" Type="bit" Nullable="false" />
+    <Property Name="DogumTarihi" Type="date" Nullable="false" />
+    <Property Name="IseGirisTarihi" Type="date" Nullable="false" />
+    <Property Name="maas" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Expenses">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GiderAdi" Type="char" MaxLength="30" Nullable="false" />
+    <Property Name="Miktar" Type="int" Nullable="false" />
+    <Property Name="Tarih" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Incomes">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GelirAdi" Type="char" MaxLength="30" Nullable="false" />
+    <Property Name="Miktar" Type="int" Nullable="false" />
+    <Property Name="Tarih" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Patients">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ad" Type="char" MaxLength="30" Nullable="false" />
+    <Property Name="Soyad" Type="char" MaxLength="30" Nullable="false" />
+    <Property Name="Cinsiyet" Type="bit" Nullable="false" />
+    <Property Name="Yas" Type="int" Nullable="false" />
+    <Property Name="Ilce" Type="char" MaxLength="30" Nullable="false" />
+    <Property Name="Adres" Type="char" MaxLength="60" Nullable="false" />
+    <Property Name="PostaKodu" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="TCNo" Type="char" MaxLength="11" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="KullaniciAdi" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Sifre" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="RolNo" Type="int" Nullable="false" />
+    <Property Name="CalisanNo" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6035: The relationship 'FK_AppointmentHours.HastaTC_Patients.TCNo' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
+        <Association Name="FK_AppointmentHours_HastaTC_Patients_TCNo" />-->
+  <Association Name="FK_Diagnostic_DoktorID_Employees_ID">
+    <End Role="Employees" Type="Self.Employees" Multiplicity="1" />
+    <End Role="Diagnostic" Type="Self.Diagnostic" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Diagnostic">
+        <PropertyRef Name="DoktorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <!--Errors Found During Generation:
+warning 6035: The relationship 'FK_Diagnostic.HastaTC_Patients.TCNo' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
+        <Association Name="FK_Diagnostic_HastaTC_Patients_TCNo" />-->
+  <Association Name="FK_Doktorlar_DoktorID_Calisanlar_ID">
+    <End Role="Employees" Type="Self.Employees" Multiplicity="1" />
+    <End Role="Doctors" Type="Self.Doctors" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Doctors">
+        <PropertyRef Name="DoktorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Doktorlar_KlinikID_Klinikler_ID">
+    <End Role="Clinics" Type="Self.Clinics" Multiplicity="1" />
+    <End Role="Doctors" Type="Self.Doctors" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clinics">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Doctors">
+        <PropertyRef Name="KlinikID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Kullanicilar_CalisanNo_Calisanlar_ID">
+    <End Role="Employees" Type="Self.Employees" Multiplicity="1" />
+    <End Role="Users" Type="Self.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="CalisanNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <!--Errors Found During Generation:
+warning 6035: The relationship 'FK_Randevular.DoktorID_Doktorlar.ID' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
+        <Association Name="FK_Randevular_DoktorID_Doktorlar_ID" />-->
+  <Association Name="FK_Randevular_KlinikID_Klinikler_ID">
+    <End Role="Clinics" Type="Self.Clinics" Multiplicity="1" />
+    <End Role="Appointments" Type="Self.Appointments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clinics">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Appointments">
+        <PropertyRef Name="KlinikID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <!--Errors Found During Generation:
+warning 6035: The relationship 'FK_Randevular.TCNo_Hastalar.TCNo' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
+        <Association Name="FK_Randevular_TCNo_Hastalar_TCNo" />-->
+  <!--Errors Found During Generation:
+warning 6035: The relationship 'UQ_AppointmentHours.DoctorID_Doctors.DoctorID' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
+        <Association Name="UQ_AppointmentHours_DoctorID_Doctors_DoctorID" />-->
+  <EntityContainer Name="HastaneTMAModelStoreContainer">
+    <EntitySet Name="AppointmentHours" EntityType="Self.AppointmentHours" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Appointments" EntityType="Self.Appointments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Clinics" EntityType="Self.Clinics" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Diagnostic" EntityType="Self.Diagnostic" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Doctors" EntityType="Self.Doctors" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Expenses" EntityType="Self.Expenses" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Incomes" EntityType="Self.Incomes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Patients" EntityType="Self.Patients" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Diagnostic_DoktorID_Employees_ID" Association="Self.FK_Diagnostic_DoktorID_Employees_ID">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="Diagnostic" EntitySet="Diagnostic" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Doktorlar_DoktorID_Calisanlar_ID" Association="Self.FK_Doktorlar_DoktorID_Calisanlar_ID">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="Doctors" EntitySet="Doctors" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Doktorlar_KlinikID_Klinikler_ID" Association="Self.FK_Doktorlar_KlinikID_Klinikler_ID">
+      <End Role="Clinics" EntitySet="Clinics" />
+      <End Role="Doctors" EntitySet="Doctors" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Kullanicilar_CalisanNo_Calisanlar_ID" Association="Self.FK_Kullanicilar_CalisanNo_Calisanlar_ID">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Randevular_KlinikID_Klinikler_ID" Association="Self.FK_Randevular_KlinikID_Klinikler_ID">
+      <End Role="Clinics" EntitySet="Clinics" />
+      <End Role="Appointments" EntitySet="Appointments" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

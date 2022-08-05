@@ -1,0 +1,2 @@
+İlk önce database'i server'ınıza import etmeniz gerekiyor.
+Programın bilgisayarınızda açılabilmesi için app.config dosyasında ConnectionString içerisindeki datasource kısmına kendi server'ınızın adını yazmalısınız.

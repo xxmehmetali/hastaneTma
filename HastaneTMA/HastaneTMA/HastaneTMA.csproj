@@ -1,0 +1,420 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{35EBFD7B-2235-460C-9F71-F32DED6697F5}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>HastaneTMA</RootNamespace>
+    <AssemblyName>HastaneTMA</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>C:\Users\xxmeh\Desktop\asdasd\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>3</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>9F13909E3A26B8B77FF1EFC32D745338ACBAA5D8</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>HastaneTMA_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.2.0.123\lib\net461\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="JetEntityFrameworkProvider, Version=6.0.0.0, Culture=neutral, PublicKeyToken=756cf6beb8fe7b41, processorArchitecture=x86">
+      <HintPath>..\packages\JetEntityFrameworkProvider.6.1.4\lib\JetEntityFrameworkProvider.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Doktor\doktorunEkrani.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Doktor\doktorunEkrani.Designer.cs">
+      <DependentUpon>doktorunEkrani.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Doktor\konulanTanilariGoster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Doktor\konulanTanilariGoster.Designer.cs">
+      <DependentUpon>konulanTanilariGoster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Doktor\taniKoy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Doktor\taniKoy.Designer.cs">
+      <DependentUpon>taniKoy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="girisEkrani.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="girisEkrani.Designer.cs">
+      <DependentUpon>girisEkrani.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HastaneTMAClinics.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HastaneTMAClinics.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="HastaneTMADataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HastaneTMADataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="HastaneTMADataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HastaneTMADataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="HastaneTMADataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HastaneTMADataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="HastaneTMADataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HastaneTMADataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="HastaneTMADataSetDiagnostic.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HastaneTMADataSetDiagnostic.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="HastaneTMADataSetUsers.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HastaneTMADataSetUsers.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="HastaneTMADataSetUsers2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HastaneTMADataSetUsers2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Helper.cs" />
+    <Compile Include="Model\Appointment.cs" />
+    <Compile Include="Model\AppointmentHour.cs" />
+    <Compile Include="Model\Clinic.cs" />
+    <Compile Include="Model\Diagnostic.cs" />
+    <Compile Include="Model\Doctor.cs" />
+    <Compile Include="Model\Employee.cs" />
+    <Compile Include="Model\Expens.cs" />
+    <Compile Include="Model\Income.cs" />
+    <Compile Include="Model\Model1.cs" />
+    <Compile Include="Model\Patient.cs" />
+    <Compile Include="Model\sysdiagram.cs" />
+    <Compile Include="Model\User.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Sekreter\randevuSil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sekreter\randevuSil.Designer.cs">
+      <DependentUpon>randevuSil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Yonetici\doktorIliskilendir.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Yonetici\doktorIliskilendir.Designer.cs">
+      <DependentUpon>doktorIliskilendir.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Yonetici\kullaniciBilgileri.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Yonetici\kullaniciBilgileri.Designer.cs">
+      <DependentUpon>kullaniciBilgileri.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Yonetici\yoneticininEkrani.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Yonetici\yoneticininEkrani.Designer.cs">
+      <DependentUpon>yoneticininEkrani.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sekreter\hastaEkle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sekreter\hastaEkle.Designer.cs">
+      <DependentUpon>hastaEkle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sekreter\hastaSil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sekreter\hastaSil.Designer.cs">
+      <DependentUpon>hastaSil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sekreter\sekreterinEkrani.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sekreter\sekreterinEkrani.Designer.cs">
+      <DependentUpon>sekreterinEkrani.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sekreter\yeniRandevu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sekreter\yeniRandevu.Designer.cs">
+      <DependentUpon>yeniRandevu.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Doktor\doktorunEkrani.resx">
+      <DependentUpon>doktorunEkrani.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Doktor\konulanTanilariGoster.resx">
+      <DependentUpon>konulanTanilariGoster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Doktor\taniKoy.resx">
+      <DependentUpon>taniKoy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="girisEkrani.resx">
+      <DependentUpon>girisEkrani.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sekreter\randevuSil.resx">
+      <DependentUpon>randevuSil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Yonetici\doktorIliskilendir.resx">
+      <DependentUpon>doktorIliskilendir.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Yonetici\kullaniciBilgileri.resx">
+      <DependentUpon>kullaniciBilgileri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Yonetici\yoneticininEkrani.resx">
+      <DependentUpon>yoneticininEkrani.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sekreter\hastaEkle.resx">
+      <DependentUpon>hastaEkle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sekreter\hastaSil.resx">
+      <DependentUpon>hastaSil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sekreter\sekreterinEkrani.resx">
+      <DependentUpon>sekreterinEkrani.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sekreter\yeniRandevu.resx">
+      <DependentUpon>yeniRandevu.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="HastaneTMAClinics.xsc">
+      <DependentUpon>HastaneTMAClinics.xsd</DependentUpon>
+    </None>
+    <None Include="HastaneTMAClinics.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>HastaneTMAClinics.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="HastaneTMAClinics.xss">
+      <DependentUpon>HastaneTMAClinics.xsd</DependentUpon>
+    </None>
+    <None Include="HastaneTMADataSet.xsc">
+      <DependentUpon>HastaneTMADataSet.xsd</DependentUpon>
+    </None>
+    <None Include="HastaneTMADataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>HastaneTMADataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="HastaneTMADataSet.xss">
+      <DependentUpon>HastaneTMADataSet.xsd</DependentUpon>
+    </None>
+    <None Include="HastaneTMADataSet1.xsc">
+      <DependentUpon>HastaneTMADataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="HastaneTMADataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>HastaneTMADataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="HastaneTMADataSet1.xss">
+      <DependentUpon>HastaneTMADataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="HastaneTMADataSet2.xsc">
+      <DependentUpon>HastaneTMADataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="HastaneTMADataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>HastaneTMADataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="HastaneTMADataSet2.xss">
+      <DependentUpon>HastaneTMADataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="HastaneTMADataSet3.xsc">
+      <DependentUpon>HastaneTMADataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="HastaneTMADataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>HastaneTMADataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="HastaneTMADataSet3.xss">
+      <DependentUpon>HastaneTMADataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="HastaneTMADataSetDiagnostic.xsc">
+      <DependentUpon>HastaneTMADataSetDiagnostic.xsd</DependentUpon>
+    </None>
+    <None Include="HastaneTMADataSetDiagnostic.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>HastaneTMADataSetDiagnostic.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="HastaneTMADataSetDiagnostic.xss">
+      <DependentUpon>HastaneTMADataSetDiagnostic.xsd</DependentUpon>
+    </None>
+    <None Include="HastaneTMADataSetUsers.xsc">
+      <DependentUpon>HastaneTMADataSetUsers.xsd</DependentUpon>
+    </None>
+    <None Include="HastaneTMADataSetUsers.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>HastaneTMADataSetUsers.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="HastaneTMADataSetUsers.xss">
+      <DependentUpon>HastaneTMADataSetUsers.xsd</DependentUpon>
+    </None>
+    <None Include="HastaneTMADataSetUsers2.xsc">
+      <DependentUpon>HastaneTMADataSetUsers2.xsd</DependentUpon>
+    </None>
+    <None Include="HastaneTMADataSetUsers2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>HastaneTMADataSetUsers2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="HastaneTMADataSetUsers2.xss">
+      <DependentUpon>HastaneTMADataSetUsers2.xsd</DependentUpon>
+    </None>
+    <None Include="HastaneTMA_TemporaryKey.pfx" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\personplus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\personminus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\appointmentcreate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\appointmentcancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Data\HastaneTMA.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Data\HastaneTMA_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+</Project>
